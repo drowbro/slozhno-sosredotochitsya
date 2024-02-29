@@ -1,5 +1,366 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-image: url(../images/cover-image-dark.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--color-background);
+  background-attachment: fixed;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  height: 100vh;
+  min-height: 668px;
+  align-items: center;
+  padding: 10px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  height: 25px;
+  width: 25px;
+  border-block-end: 1px solid var(--color-zone-decorate);
+  border-inline-start: 1px solid var(--color-zone-decorate);
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 25px;
+  width: 25px;
+  border-block-start: 1px solid var(--color-zone-decorate);
+  border-inline-end: 1px solid var(--color-zone-decorate);
+}
+
+.rec-decoration {
+  position: absolute;
+  right: 19px;
+  top: 10px;
+  color: var(--color-accent);
+  font-size: 18px;
+}
+
+.rec-decoration:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--color-accent);
+}
+
+.header__theme-menu {
+  height: max-content;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header__theme-menu-botton {
+  border: none;
+  border-block-end: 1px solid transparent;
+  color: var(--color-header);
+  font-size: 18px;
+  text-align: center;
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+  min-inline-size: 70px;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--color-header-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--color-header);
+  pointer-events: none;
+}
+
+.header__text {
+  color: var(--color-header-title);
+  font-size: var(--header-text-size);
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0px var(--color-shadow);
+}
+
+.title-decor {
+  height: max-content;
+  color: var(--color-decor);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23.4px;
+  background-color: var(--color-accent);
+}
+
+.main {
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 50px;
+}
+
+.title {
+  color: var(--color-block-title);
+  font-size: 18px;
+}
+
+.subtitle {
+  margin-block-start: 23px;
+}
+
+.text__block {
+  padding-block-start: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text__block-description {
+  color: var(--color-block);
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.text__block-description a {
+  border: 1px solid transparent;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 var(--color-accent);
+}
+
+.text__block-description a:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.text__block-description a:focus {
+  outline: none;
+}
+
+.text__block-description a:focus-visible {
+  border: 1px solid var(--color-block);
+}
+
+.thin {
+  font-weight: 400;
+}
+
+.images {
+  padding-block-start: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer {
+  height: 100vh;
+  min-height: 668px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px;
+  }
+
+  .header__text {
+    margin-left: -20px;
+    font-size: var(--header-text-size);
+  }
+
+  .rec-decoration {
+    top: 21px;
+    right: 28px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .main {
+    gap: 35px;
+    padding: 280px 20px;
+  }
+
+  .block {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    grid-template-areas: "title text__block";
+    gap: 20px;
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horizontal .title {
+    max-width: min-content;
+  }
+
+  .subtitle {
+    margin-block-start: 0;
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .textblock {
+    justify-self: end;
+    align-self: center;
+    max-inline-size: 365px;
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .text__block {
+    grid-area: text__block;
+    padding-block-start: 0;
+  }
+
+  .images {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    padding-block-start: 20px;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .image:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 3;
+    height: 262px;
+  }
+
+  .image:nth-child(2) {
+    grid-area: 1 / 3 / 3 / 4;
+    height: 526px;
+  }
+
+  .image:nth-child(3) {
+    grid-area: 2 / 1 / 4 / 2;
+    height: 645px;
+  }
+
+  .image:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+    width: 135px;
+  }
+
+  .image:nth-child(5) {
+    grid-area: 3 / 2 / 4 / 4;
+    height: 320px;
+  }
+
+  .footer__text {
+    margin: 0px;
+    text-shadow: 2px 2px 0px var(--color-shadow);
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    align-self: start;
+  }
+
+  .header__text {
+    font-size: var(--header-text-size);
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .block {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .textblock {
+    max-inline-size: 291px;
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horizontal .title {
+    max-width: 323px;
+  }
+
+  .horizontal .blocks {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text__block {
+    flex: 1;
+  }
+
+  .image:nth-child(1) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image:nth-child(2) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image:nth-child(3) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image:nth-child(4) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image:nth-child(5) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer__text {
+    text-shadow: 2px 2px 0px var(--color-shadow);
+  }
 }

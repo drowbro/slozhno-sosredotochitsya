@@ -13,7 +13,6 @@
   position: relative;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
-  min-height: 100vh;
   min-height: 668px;
   align-items: center;
   padding: 10px;
@@ -70,11 +69,12 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
+  font-family: "IBM Plex mono", monospace;
   align-items: flex-end;
   gap: 12px;
 }
 
-.header__theme-menu-botton {
+.header__theme-menu-button {
   border: none;
   border-block-end: 1px solid transparent;
   color: var(--color-header);
@@ -103,10 +103,11 @@
   pointer-events: none;
 }
 
-.nofocus__text {
+.title__text {
   color: var(--color-header-title);
   font-size: var(--header-text-size);
-  line-height: 82.5%;
+  line-height: 130px;
+  font-family: "IBM Plex mono", monospace;
   text-shadow: 4px 4px 0px var(--color-shadow);
 }
 
@@ -114,19 +115,16 @@
   height: max-content;
   color: var(--color-decor);
   background-color: var(--color-accent);
+  font-family: "IBM Plex mono", monospace;
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
 }
 
 .header__title {
-  width: 491px;
-  height: 71px;
+  max-width: 491px;
   justify-self: end;
   align-self: center;
-}
-
-.header__title {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -142,6 +140,7 @@
 
 .title {
   color: var(--color-block-title);
+  font-family: "IBM Plex mono", monospace;
   font-size: 18px;
 }
 
@@ -154,6 +153,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-family: "IBM Plex mono", monospace;
 }
 
 .text__block-description {
@@ -205,9 +205,14 @@
     padding: 20px;
   }
 
-  .header__text {
+  .header__title {
+    justify-self: end;
+    align-self: center;
+    max-inline-size: 365px;
+  }
+
+  .title__text {
     margin-left: -20px;
-    font-size: var(--header-text-size);
   }
 
   .rec-decoration {
@@ -225,8 +230,8 @@
   }
 
   .main {
-    gap: 35px;
-    padding: 280px 20px;
+    gap: 80px;
+    padding: 60px 20px;
   }
 
   .block {
@@ -238,7 +243,7 @@
 
   .horizontal {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .horizontal .title {
@@ -304,17 +309,12 @@
 
   .footer__text {
     margin: 0px;
-    text-shadow: 2px 2px 0px var(--color-shadow);
   }
 }
 
 @media (width >= 1024px) {
   .header__theme-menu {
     align-self: start;
-  }
-
-  .header__text {
-    font-size: var(--header-text-size);
   }
 
   .header__theme-menu-list {
@@ -328,17 +328,8 @@
     grid-template-columns: 315px 1fr;
   }
 
-  .textblock {
+  .header__title {
     max-inline-size: 491px;
-  }
-
-  .horizontal {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .horizontal .title {
-    max-width: 316px;
   }
 
   .text__block {

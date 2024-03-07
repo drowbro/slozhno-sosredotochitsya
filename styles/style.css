@@ -49,6 +49,8 @@
   align-items: center;
   gap: 10px;
   color: var(--color-accent);
+  font-family: "IBM Plex mono", monospace;
+  font-weight: normal;
   font-size: 18px;
 }
 
@@ -68,10 +70,11 @@
 
 .header__theme-menu-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   font-family: "IBM Plex mono", monospace;
-  align-items: flex-end;
-  gap: 12px;
+  gap: 10px;
 }
 
 .header__theme-menu-button {
@@ -106,7 +109,7 @@
 .title__text {
   color: var(--color-header-title);
   font-size: var(--header-text-size);
-  line-height: 130px;
+  line-height: 82.5%;
   font-family: "IBM Plex mono", monospace;
   text-shadow: 4px 4px 0px var(--color-shadow);
 }
@@ -154,6 +157,11 @@
   flex-direction: column;
   gap: 10px;
   font-family: "IBM Plex mono", monospace;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: column;
 }
 
 .text__block-description {
@@ -241,11 +249,6 @@
     gap: 20px;
   }
 
-  .horizontal {
-    display: flex;
-    flex-direction: row;
-  }
-
   .horizontal .title {
     max-width: min-content;
   }
@@ -304,24 +307,18 @@
 
   .image:nth-child(5) {
     grid-area: 3 / 2 / 4 / 4;
-    height: 320px;
+    height: 318px;
   }
 
   .footer__text {
     margin: 0px;
+    text-shadow: 2px 2px 0px var(--color-shadow);
   }
 }
 
 @media (width >= 1024px) {
   .header__theme-menu {
     align-self: start;
-  }
-
-  .header__theme-menu-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 
   .block {
@@ -332,28 +329,27 @@
     max-inline-size: 491px;
   }
 
+  .horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horizontal .title {
+    min-width: 315px;
+  }
+
+  .horizontal .blocks {
+    display: flex;
+    flex-direction: row;
+  }
+
   .text__block {
     flex: 1;
   }
 
-  .image:nth-child(1) {
+  .image:nth-child(1n) {
     height: 100%;
-  }
-
-  .image:nth-child(2) {
-    height: 100%;
-  }
-
-  .image:nth-child(3) {
-    height: 100%;
-  }
-
-  .image:nth-child(4) {
-    height: 100%;
-  }
-
-  .image:nth-child(5) {
-    height: 100%;
+    width: 100%;
   }
 
   .footer__text {
